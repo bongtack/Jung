@@ -1,0 +1,21 @@
+float mouseSpeed = 0;
+float mapSpeedToColor = 0;
+float smoothedSpeed = 0;
+
+void setup() {
+  size (600, 600);
+  fill(255,255,255);
+}
+
+
+void draw() {
+
+  mouseSpeed = dist(mouseX, mouseY, pmouseX, pmouseY);
+  
+  smoothedSpeed = lerp(smoothedSpeed, mouseSpeed, 0.0003);
+ 
+  mapSpeedToColor = map(smoothedSpeed, 0, 10, 0, 255);
+  
+  background(0, 0, mapSpeedToColor);
+
+}
